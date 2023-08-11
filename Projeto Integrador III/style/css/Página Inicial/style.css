@@ -1,0 +1,56 @@
+.circulo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+}
+
+
+h1 {
+    color: #186053;
+    font-family: serif;
+}
+
+h5 {
+    color: #186053;
+    font-family: 'Inter';
+}
+
+.btn.btn-verde{
+    background-color:#186053 ;
+    border-color: #186053;
+    color: #FFFFFF;
+}
+
+.btn .btn-verde:active{
+    background-color: white;
+    border-color: #186053;
+    color: #186053;
+}
+
+.btn.btn-verde:hover{
+    background-color:#186053 ;
+    border-color: #186053;
+    color: #FFFFFF;
+}
+
+
+
+.verdeEscuro{
+    background: #186053;
+}
+
+.verdeClaro{
+    background: #4fc0ab;
+}
+
+.verdeMaisClaro{
+    background: #93ffeb;
+}
+
+.verdeFigurante{
+    background: #07d9b2;
+}

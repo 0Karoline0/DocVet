@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style/css/Login/login.css">
+  <title>Login</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="form-image">
+      <h1 class="bv">Bem Vindo ao DocVet</h1>
+      <img src="/style/img/cachorroMedico.jpg" alt="cachorroMedico">
+    </div>
+    <div class="form">
+      <form id="form">
+        <div class="form-header">
+          <div class="circulo">
+            <img src="/style/img/docvet.png" alt="" width="100">
+          </div>
+
+          <div class="title">
+            <h1>Login</h1>
+          </div>
+
+        </div>
+        <div class="input-group">
+          <div class="input-box">
+            <input id="email" type="text" placeholder="Digite seu E-mail" required>
+          </div>
+
+          <div class="input-box">
+            <input id="senha" type="password" placeholder="Digite sua senha" required>
+          </div>
+
+          <div class="login-button">
+            <button type="submit">Entrar</button>
+          </div>
+
+          <div class="title">
+            <h1>Não possui cadastro?</h1>
+          </div>
+          <div class="cadastre-button">
+            <button><a href="/html/cadastroDonoPet.html">Dono de pet</a></button>
+          </div>
+
+        </div>
+        <div class="cadastre-button">
+          <button><a href="/html/CadastroVeterinario.html">Veterinario</a></button>
+        </div>
+
+        </div>
+      </form>
+    </div>
+
+  <script>
+    document.getElementById("form").addEventListener("submit", function (event) {
+      event.preventDefault(); // Evita o envio do formulário padrão
+
+      // Obtém os valores dos campos de entrada
+      var email = document.getElementById("email").value;
+      var senha = document.getElementById("senha").value;
+
+      // Cria um objeto com os dados do formulário
+      var formData = {
+        email: email,
+        senha: senha
+      };
+
+      // Faz uma requisição POST para a rota de login
+      fetch("http://localhost:3000/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(formData)
+        })
+        .then(function (response) {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error("Credenciais inválidas. Por favor, tente novamente.");
+            console.log(userId);
+          }
+        })
+        .then(function (data) {
+          // Verifica se a autenticação foi bem-sucedida
+          var userId = data.userId;
+          console.log(userId)
+          if (userId) {
+            // Salva o ID do usuário no localStorage
+            localStorage.setItem("userId", userId);
+            console.log("ID do usuário salvo no localStorage:", userId);
+            alert("Bem vindo ao DocVet!");
+            // Redireciona para a página de perfil
+            window.location.href = "./perfil.html";
+          } else {
+            // Credenciais inválidas, exibe uma mensagem de erro
+            alert("Credenciais inválidas. Por favor, tente novamente.");
+          }
+        })
+        .catch(function (error) {
+          console.error("Erro ao fazer login:", error);
+        });
+    });
+  </script>
+</body>
+
+</html>

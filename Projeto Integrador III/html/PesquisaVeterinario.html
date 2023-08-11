@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisar Veterinários</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/style/css/PesquisaVeterinario/Pesquisa.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+</head>
+<body>
+
+    <header>
+
+        <div>
+            <div class="row text-center d-flex align-items-center verdeEscuro">
+                <div class="col-4 text-center">
+                    <a href="/html/inicio.html">
+                        <button class="btn btn-light">Página Inicial</button>
+                    </a>
+                </div>
+
+
+                <div class="col-4">
+                    <img src="/style/img/docvet.png" height="40px" class="circulo"/>
+                </div>
+
+
+                <div class="col-4">
+                    <a href="/html/gerenciarCadastros.html">
+                        <button class="me-5 btn btn-light">Administrativo</button>
+                    </a>
+                    <a href="/html/login.html">
+                        <button class="btn btn-light">Login</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <nav class="navbar navbar-dark verdeFigurante">
+        <div class="container-fluid">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
+                <!-- <span class="navbar-toggler-icon dark-toggler"></span> -->
+                <span style="color: black;" class="material-symbols-outlined">menu</span>
+            </button>
+
+            <div>
+                <input id="nome" type="text form" class="form-control-sm" placeholder="Pesquisa por nome...">
+                <button type="button" class="btn btn-light btn-sm mb-1" onclick="pesquisarNome()">
+                    <span class="bi bi-search"></span>
+                </button>
+            </div>
+
+            <!--INÍCIO DO OFFCANVAS-->
+            <section class="offcanvas offcanvas-start verdeEscuro" id="menuLateral" tabindex="-1"><!--start(Iniciará na esquerda)--><!--É importante o id ser o mesmo que aquele informado no data-bs-target para que ambos sejam linkados-->
+                <div class="offcanvas-header">
+                    <h4 class="offcanvas-title text-light">FILTROS</h4>
+                    <button class="btn btn-light btn-lg bi-x-circle" type="button" data-bs-dismiss="offcanvas"></button>
+                </div>
+
+                <div class="accordion accordion-flush">
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header accordion-button collapsed" type="button" data-bs-target="#especialidade" data-bs-toggle="collapse">Especialidade</h2>
+
+                        <div id="especialidade" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <input id="check1" name="especialidade" type="checkbox" class="form-check-input me-1" value="Acunpuntura">Acunputura
+                                <br>
+                                <input id="check2" name="especialidade" type="checkbox" class="form-check-input me-1" value="Cirurgia">Cirurgia
+                                <br>
+                                <input id="check3" name="especialidade" type="checkbox" class="form-check-input me-1" value="Dermatologia">Dermatologia
+                                <br>
+                                <input id="check4" name="especialidade" type="checkbox" class="form-check-input me-1" value="Oftalmologia">Oftalmologia
+                                <br>
+                                <input id="check5" name="especialidade" type="checkbox" class="form-check-input me-1" value="Homeopatia">Homeopatia
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header accordion-button collapsed" type="button" data-bs-target="#tipoAnimal" data-bs-toggle="collapse">Tipo de Animal</h2>
+
+                        <div id="tipoAnimal" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                    <input type="checkbox" name="tipo_animal" value="Cachorro" class="form-check-input me-1">Cachorro
+                                    <br>
+                                    <input type="checkbox" name="tipo_animal" value="Gato" class="form-check-input me-1">Gato
+                                    <br>
+                                    <input type="checkbox" name="tipo_animal" value="Pássaro" class="form-check-input me-1">Pássaro
+                                    <br>
+                                    <input type="checkbox" name="tipo_animal" value="Peixe" class="form-check-input me-1">Peixe
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header accordion-button collapsed" type="button" data-bs-target="#porte" data-bs-toggle="collapse">Porte</h2>
+
+                            <div id="porte" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    <input type="checkbox" name="porte" value="Pequeno" class="form-check-input me-1">Pequeno
+                                    <br>
+                                    <input type="checkbox" name="porte" value="Médio" class="form-check-input me-1">Médio
+                                    <br>
+                                    <input type="checkbox" name="porte" value="Grande" class="form-check-input me-1">Grande
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header accordion-button collapsed" type="button" data-bs-target="#convenio" data-bs-toggle="collapse">Convênio</h2>
+
+                            <div id="convenio" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    <input type="checkbox" name="convenio" value="PetLove" class="form-check-input me-1">PetLove
+                                    <br>
+                                    <input type="checkbox" name="convenio" value="PetHealth" class="form-check-input me-1">PetHealth
+                                    <br>
+                                    <input type="checkbox" name="convenio" value="Plamev" class="form-check-input me-1">Plamev
+                                    <br>
+                                    <input type="checkbox" name="convenio" value="Particular" class="form-check-input me-1">Particular
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#localizacao">Localização</h2>
+
+                            <div id="localizacao" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <div class="d-flex row">
+                                            <div class="col-3">
+                                                <select id="estado" class="form-select">
+                                                    <option hidden></option>
+                                                    <option value="AC">AC</option>
+                                                    <option value="AP">AP</option>
+                                                    <option value="AM">AM</option>
+                                                    <option value="PA">PA</option>
+                                                    <option value="RO">RO</option>
+                                                    <option value="RR">RR</option>
+                                                    <option value="TO">TO</option>
+                                                    <option value="AL">AL</option>
+                                                    <option value="BA">BA</option>
+                                                    <option value="CE">CE</option>
+                                                    <option value="MA">MA</option>
+                                                    <option value="PB">PB</option>
+                                                    <option value="PE">PE</option>
+                                                    <option value="PI">PI</option>
+                                                    <option value="RN">RN</option>
+                                                    <option value="SE">SE</option>
+                                                    <option value="ES">ES</option>
+                                                    <option value="MG">MG</option>
+                                                    <option value="RJ">RJ</option>
+                                                    <option value="SP">SP</option>
+                                                    <option value="PR">PR</option>
+                                                    <option value="RS">RS</option>
+                                                    <option value="SC">SC</option>
+                                                    <option value="DF">DF</option>
+                                                    <option value="GO">GO</option>
+                                                    <option value="MT">MT</option>
+                                                    <option value="MS">MS</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-9">
+                                                <input id="cidade" class="col-8 form-control" type="text" class="form-control" placeholder="Informe a cidade">
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header accordion-button collapsed" type="button" data-bs-target="#preco" data-bs-toggle="collapse">Faixa de Preço</h2>
+                            <div id="preco" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    <input name="valor" type="radio" value="25/49" class="form-check-input me-1">R$25 a R$49
+                                    <br>
+                                    <input name="valor" type="radio" value="50/99" class="form-check-input me-1">R$50 a R$99
+                                    <br>
+                                    <input name="valor" type="radio" value="100/200" class="form-check-input me-1">R$100 a R$200
+                                    <br>
+                                    <input name="valor" type="radio" value="201" class="form-check-input me-1"> Mais de R$200
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header accordion-button collapsed" type="button" data-bs-target="#avaliacao" data-bs-toggle="collapse">Avaliação</h2>
+
+                            <div id="avaliacao" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    <button class="btn estrelas" type="button">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star"></i>
+                                        <i class="bi bi-star"></i>
+                                    </button>
+                                    <br>
+                                    <button class="btn estrelas" type="button">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star"></i>
+                                    </button>
+                                    <br>
+                                    <button class="btn estrelas" type="button">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </button>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--FIM DO ACCORDION-->
+                    <button class="btn rounded-0 botaoFiltro" onclick="pesquisarFiltro()">FILTRAR</button>
+            </section><!--FIM DO OFFCANVAS-->
+    </nav>
+
+    <br>
+
+    <div id="veterinariosArea" class="container-xl">
+        
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+        let nomeVet = document.getElementById('nome');
+        let fotoVet = document.getElementById('fotoVet');
+        let espec1 = document.getElementById('especialidade1');
+        let espec2 = document.getElementById('especialidade2');
+        let convenios = document.getElementById('areaConvenios');
+        let valor = document.getElementById('valor');
+        const veterinariosArea = document.getElementById('veterinariosArea');
+
+        const API_URL = 'http://localhost:3000/veterinario';
+
+        async function pesquisarFiltro(){
+            const checkEspecialidade = document.querySelectorAll('input[name="especialidade"]:checked')
+            const checkTipoAnimal = document.querySelectorAll('input[name="tipo_animal"]:checked')
+            const checkPorte = document.querySelectorAll('input[name="porte"]:checked')
+            const checkConvenio = document.querySelectorAll('input[name="convenio"]:checked');
+            const checkValor = document.querySelectorAll('input[name="valor"]:checked');
+            const checkEstado = document.getElementById('estado');
+            const checkCidade = document.getElementById('cidade');
+
+
+            let especialidades = Array.from(checkEspecialidade).map(checkbox => checkbox.value);
+            let tipo_animal = Array.from(checkTipoAnimal).map(checkbox => checkbox.value);
+            let porte = Array.from(checkPorte).map(checkbox => checkbox.value);
+            let convenio = Array.from(checkConvenio).map(checkbox => checkbox.value);
+            let valor = Array.from(checkValor).map(checkbox => checkbox.value);
+            let estado = checkEstado.value;
+            let cidade = checkCidade.value;
+
+            // console.log(especialidades);
+            // console.log(tipo_animal);
+            // console.log(porte);
+            // console.log(convenio);
+            // console.log(valor);
+            // console.log(estado);
+            // console.log(cidade);
+
+            const queryEspecialidades = especialidades.map(item => "especialidade=" + item).join('&');
+            const queryTipoAnimal = tipo_animal.map(item => "tipo_animal=" + item).join('&');
+            const queryPorte = porte.map(item => "porte=" + item).join('&');
+            const queryConvenio = convenio.map(item => "convenio=" + item).join('&');
+            const queryValor = valor.map(item => "valor=" + item).join('&');
+
+            // console.log(queryEspecialidades);
+            // console.log(queryTipoAnimal);
+            // console.log(queryPorte);
+            // console.log(queryConvenio);
+            // console.log(queryValor);
+
+            const teste = [];
+            if (queryEspecialidades ? teste.push(queryEspecialidades) : ``);
+            if (queryTipoAnimal ? teste.push(queryTipoAnimal) : ``);
+            if (queryPorte ? teste.push(queryPorte) : ``);
+            if (queryConvenio ? teste.push(queryConvenio): ``);
+            if (queryValor ? teste.push(queryValor) : ``);
+            if (estado ? teste.push(`estadoatendimento=` + estado) : ``);
+            if (cidade ? teste.push(`cidadeatendimento=` + cidade) : ``);
+            const query = teste.join('&');
+            console.log(query);
+
+            const resposta = await fetch
+            (
+                API_URL + '/pesquisa' + '?'+ query
+            );
+            const veterinarios = await resposta.json();
+            if (!(veterinarios === null)){
+                getVeterinarios(veterinarios);
+            }else{
+                veterinariosArea.innerHTML =
+                `
+                <div class="imagem-not_found mt-4">
+                    <div class="imagemCenter">
+                        <img class="not_found" src="/style/img/NotFound.png" alt="Não foram encontrados resultados">
+                    </div>
+                    </div>
+                <div class="texto-not_found mt-4">
+                    <h1 class="not_found">OPS!</h1>
+                    <br>
+                    <h4 class="not_found">Não foram encontrados resultados para sua busca</h4>
+                </div>
+                `;
+            }
+        }
+
+        async function pesquisarNome(){
+            const nome = document.getElementById('nome').value;
+            const resposta = await fetch(API_URL + '/nome/' + nome);
+            const veterinarios = await resposta.json();
+            if (veterinarios === null){
+                veterinariosArea.innerHTML =
+                `
+                <div class="imagem-not_found mt-4">
+                    <div class="imagemCenter">
+                        <img class="not_found" src="/style/img/NotFound.png" alt="Não foram encontrados resultados">
+                    </div>
+                    </div>
+                <div class="texto-not_found mt-4">
+                    <h1 class="not_found">OPS!</h1>
+                    <br>
+                    <h4 class="not_found">Não foram encontrados resultados para sua busca</h4>
+                </div>
+                `;
+            }else{
+                getVeterinarios(veterinarios);
+            }
+        }
+
+        window.onload = async function(){
+            const resposta = await fetch(API_URL + '/')
+            const veterinarios = await resposta.json();
+
+            getVeterinarios(veterinarios);
+        }
+
+        async function getAll(){
+            const resposta = await fetch(API_URL + '/');
+            const veterinarios = await resposta.json();
+            getVeterinarios(veterinarios);
+        }
+
+        async function getVeterinarios(vet){
+            const veterinarios = vet;
+            //console.log(typeof veterinarios);
+            //console.log(veterinarios.length);
+
+            veterinariosArea.innerHTML = ``;
+            let htmlCardGroup = ``;
+            let contagemVeterinarios = 0;
+            let divisoes = 0;
+
+            if (!(veterinarios.length === 1)){
+                for (k of veterinarios){
+                contagemVeterinarios++
+                }
+            }else{
+                contagemVeterinarios = 1;
+            }
+
+            divisoes = Math.ceil(contagemVeterinarios/3);
+
+            for(let i = 0; i< divisoes; i++){
+                htmlCardGroup += `
+                    <div id="card${i}" class="card-group">
+                    </div>
+                    <br>
+                `
+            }
+
+            veterinariosArea.innerHTML += htmlCardGroup;
+
+
+            //===================Quantidade de convenios e especialidades============//
+
+            //console.log("Veterinarios Length: " + veterinarios.length);
+            let posicaoVet = 0;
+            let html = ``;
+            for (let cardGroup = 0; cardGroup<divisoes; cardGroup++){
+                let contador = 0;
+                while (!(contador === 3)){
+                    let htmlEspecialidade = ``;
+                    let htmlConvenio = ``;
+                    let htmlFoto = ``;
+
+                    //console.log("Posicao Vet: " + posicaoVet);
+                    if (posicaoVet >= veterinarios.length){
+                        html +=
+                        `
+                            <div class="card placeholder-card">
+                                <div class="card-header">
+                                    <div class="card-body">
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        posicaoVet++
+                        contador++;
+                    }else{
+                        //console.log("Especialidade: " + veterinarios[posicaoVet].nome);
+                        //console.log("Especialidade: " + veterinarios[posicaoVet].especialidade);
+                        let especialidades = veterinarios[posicaoVet].especialidade.split("/");
+                        let convenios = veterinarios[posicaoVet].convenio;
+                        let fotoVet = veterinarios[posicaoVet].foto;
+
+
+
+
+                        if (!(convenios === null)){
+                            convenios = veterinarios[posicaoVet].convenio.split("/");
+                            htmlConvenio += `<h5>Convênios</h5>`
+                            for (convenio of convenios){
+                                if (convenio === 'PetHealth'){
+                                    htmlConvenio +=
+                                    `
+                                    <img src="/style/img/conveniosLogo/PetHealth.png" width="30px" class="convenioCirculo">
+                                    `
+                                }
+                                if (convenio === 'PetLove'){
+                                    htmlConvenio +=
+                                    `
+                                    <img src="/style/img/conveniosLogo/PetLove.png" width="30px" class="convenioCirculo">
+                                    `
+                                }
+
+                                if (convenio === 'Plamev'){
+                                    htmlConvenio +=
+                                    `
+                                    <img src="/style/img/conveniosLogo/Plamev.png" width="30px" class="convenioCirculo">
+                                    `
+                                }
+                            }
+                        }else{
+                            htmlConvenio += `
+                            <h5>Não atende convênio</h5>
+                            <img style="visibility: hidden;" src="/style/img/conveniosLogo/Plamev.png" width="30px" class="convenioCirculo">
+                            `
+                        }
+
+
+
+
+                        if (especialidades.length === 1){
+                            htmlEspecialidade += `
+                                <h4>${especialidades[0]}</h4>
+                                <h4 style="visibility: hidden;">Especialidade</h4>
+                            `;
+                        }else{
+                            if(especialidades.length === 2){
+                                for (especialidade of especialidades){
+                                    htmlEspecialidade +=
+                                    `
+                                        <h4>${especialidade}</h4>
+                                    `;
+                                }
+                            }else{
+                                let contagemEspecialidades = especialidades.length;
+                                htmlEspecialidade +=
+                                `
+                                    <h4>${especialidade}</h4>
+                                    <h4 style="font-size: 16.95px; margin-bottom: 16px;">Mais ${contagemEspecialidades-1} especialidades</h4>
+                                `
+                            }
+
+
+                        }
+
+
+                        if (!(fotoVet === null)){
+                            htmlFoto = `
+                                <img src="${veterinarios[posicaoVet].foto}" width="200px" class="img-fluid img-thumbnail mt-3 imagemDoutores imagem">
+                            `
+                        }else{
+                            htmlFoto = `
+                            <img src="/style/img/FotoPerfilVazia.png" width="200px" class="img-fluid img-thumbnail mt-3 imagemDoutores imagem">
+                            `
+                        }
+
+
+                        html += `
+
+                        <div class="card align-items-center">
+                            <div class="pt-3 card-header justify-content-around text-center">
+                                <!--Nome Veterinario-->
+                                <h4>${veterinarios[posicaoVet].nome}</h4>
+                                <!--Foto Veterinário-->
+                                ` + htmlFoto + `
+
+                                <div class="card-body">
+                                    <!--Especialidades Veterinário-->
+                                    ` + htmlEspecialidade + `
+                                    <br>
+                                    <div">
+                                        ` + htmlConvenio + `
+                                    </div>
+                                    <br>
+                                    <!--Valor Consulta Veterinário-->
+                                    <h5>Valor da Consulta</h5>
+                                    <h5>R$ ${veterinarios[posicaoVet].valor}</h5>
+                                    <br>
+                                    <div class="text-center">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        `;
+
+                        posicaoVet++;
+                        contador++;
+                    }
+                const card = document.getElementById(`card${cardGroup}`);
+                card.innerHTML += html;
+                html = ``;
+            }
+        }
+
+
+
+
+        }
+
+    </script>
+
+
+
+
+</body>
+</html>
+
+<!--
+
+-->

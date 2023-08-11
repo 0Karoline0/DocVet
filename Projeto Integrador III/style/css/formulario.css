@@ -1,0 +1,28 @@
+.circulo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+}
+
+.verde{
+    background-color: #07d9b2;
+}
+
+.verde-escuro{
+    background-color: #186053;
+}
+
+.checkbox-lg{
+    scale: 1.5;
+}
+
+.botoes{
+    height: 80;
+    width: 80px;
+    border-radius: 10px;
+    background-color: #3ABA9B;
+}

@@ -1,0 +1,162 @@
+@media(max-width: 799px){
+    .imagem-not_found{
+        display: none;
+    }
+    .texto-not_found{
+        display: block;
+    }
+}
+
+@media(min-width: 800px){
+    .imagem-not_found{
+        display: block;
+    }
+
+    .texto-not_found{
+        display: none;
+    }
+}
+
+.imagemCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.not_found{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #186053;
+}
+
+.placeholder-card{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.botao{
+    background-color: #20c997;
+    border-color: #20c997;
+}
+
+.imagem{
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.accordion-button:not(.collapsed){
+    background-color: #c4fff4;
+    color: #186053;
+}
+
+.accordion-button:active{
+    background-color: #c4fff4;
+    color: #186053;
+}
+
+.accordion-button:checked{
+    color: brown;
+    background-color: blueviolet;
+}
+
+.botaoBranco{
+    color: white;
+}
+
+.botaoFiltro{
+    background: #93ffeb;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.botaoFiltro:hover{
+    background: #07d9b2;
+    font-size: large;
+}
+
+.botaoFiltro:active{
+    background: #93ffeb;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.pata{
+    border-width: 0;
+    background-color: transparent;
+}
+
+.imagemDoutores{/*Imagem HTML*/
+    position: relative;
+}
+
+.pata:hover{/*Imagem CSS*/
+    position: relative;
+    border-width: 0;
+    background-image: url("Imagens/Patinha.png");
+    background-size: 50px;
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+
+.estrelas:hover{
+    background-color: #93ffeb;
+}
+
+.estrelas:focus{
+    background-color: #07d9b2;
+}
+
+body{
+    background-color: #dafff8;
+}
+
+.convenioCirculo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border-color: transparent;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+}
+
+
+.circulo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+}
+
+.verdeEscuro{
+    background: #186053;
+}
+
+.verdeClaro{
+    background: #4fc0ab;
+}
+
+.verdeMaisClaro{
+    background: #93ffeb;
+}
+
+.verdeFigurante{
+    background: #07d9b2;
+}
